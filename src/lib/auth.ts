@@ -30,21 +30,21 @@ export async function getSession(): Promise<{ userId: string; role: string } | n
 }
 
 /**
- * Hash a password using base64 encoding with a prefix marker.
- * Format: "hashed_<base64(password)>"
+ * Hash a password.
+ * Format: "hashed_" + base64(password)
+ * Simple but sufficient for a demo/self-hosted project.
+ * Replace with bcrypt for production-grade security.
  */
 export function hashPassword(password: string): string {
-  return "hashed_" + Buffer.from(password).toString("base64");
+  return "hashed_" + Buffer.from(password, "utf8").toString("base64");
 }
 
 /**
- * Verify a plain password against a stored hash.
- * Supports:
- *  1. New users hashed with hashPassword() → "hashed_<base64>"
- *  2. Seed users with known plain passwords stored as special markers
+ * Verify a password against a stored hash.
+ * All passwords (including seed data) are stored in the same format.
  */
 export function verifyPassword(password: string, hash: string): boolean {
-  // Case 1: passwords hashed by our hashPassword() function
+  if (!hash || !password) return false;
   if (hash.startsWith("hashed_")) {
     try {
       const decoded = Buffer.from(hash.slice(7), "base64").toString("utf8");
@@ -53,12 +53,5 @@ export function verifyPassword(password: string, hash: string): boolean {
       return false;
     }
   }
-
-  // Case 2: seed/legacy passwords stored as plain markers for demo
-  // These are the initial seed accounts in db.ts
-  const SEED_PASSWORDS: Record<string, string> = {
-    "$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lqpS": "Admin@1234",
-    "$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi": "password",
-  };
-  return SEED_PASSWORDS[hash] === password;
+  return false;
 }
