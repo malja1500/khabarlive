@@ -20,18 +20,16 @@
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.39",
     "next-themes": "^0.3.0",
-    "next-intl": "^3.17.2",
     "zustand": "^4.5.4",
-    "bcryptjs": "^2.4.3",
-    "@types/bcryptjs": "^2.4.6",
     "jose": "^5.6.3",
     "lucide-react": "^0.408.0",
     "clsx": "^2.1.1",
     "tailwind-merge": "^2.4.0",
-    "framer-motion": "^11.3.8",
     "react-hot-toast": "^2.4.1",
     "date-fns": "^3.6.0",
-    "swr": "^2.2.5"
+    "swr": "^2.2.5",
+    "better-sqlite3": "^9.6.0",
+    "@types/better-sqlite3": "^7.6.11"
   },
   "devDependencies": {
     "eslint": "^8.57.0",
