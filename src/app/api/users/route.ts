@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { USERS_DB } from "@/lib/db";
+import { userQueries, DBUser } from "@/lib/database";
 import { getSession } from "@/lib/auth";
 
 export async function GET() {
@@ -7,10 +7,19 @@ export async function GET() {
   if (!session || session.role !== "admin") {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
-  // Return users without sensitive info
-  const users = USERS_DB.map(({ id, name, email, role, avatar, createdAt, newsCount, isActive }) => ({
-    id, name, email, role, avatar, createdAt, newsCount, isActive,
+
+  const rows = userQueries.getAll.all() as DBUser[];
+  const users = rows.map((u) => ({
+    id:         u.id,
+    name:       u.name,
+    email:      u.email,
+    role:       u.role,
+    avatar:     u.avatar,
+    createdAt:  u.created_at,
+    newsCount:  u.news_count,
+    isActive:   Boolean(u.is_active),
   }));
+
   return NextResponse.json({ users });
 }
 
@@ -19,12 +28,15 @@ export async function DELETE(req: NextRequest) {
   if (!session || session.role !== "admin") {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
+
   const { id } = await req.json();
   if (id === "admin-1") {
     return NextResponse.json({ error: "Cannot delete main admin" }, { status: 400 });
   }
-  const idx = USERS_DB.findIndex((u) => u.id === id);
-  if (idx === -1) return NextResponse.json({ error: "Not found" }, { status: 404 });
-  USERS_DB.splice(idx, 1);
+
+  const user = userQueries.findById.get(id) as DBUser | undefined;
+  if (!user) return NextResponse.json({ error: "Not found" }, { status: 404 });
+
+  userQueries.delete.run(id);
   return NextResponse.json({ success: true });
 }

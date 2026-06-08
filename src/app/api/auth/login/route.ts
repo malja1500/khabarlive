@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { USERS_DB, PASSWORDS_DB } from "@/lib/db";
+import { userQueries, DBUser } from "@/lib/database";
 import { signToken, verifyPassword } from "@/lib/auth";
 
 export async function POST(req: NextRequest) {
@@ -10,24 +10,17 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Email and password required" }, { status: 400 });
     }
 
-    // Find user
-    const user = USERS_DB.find((u) => u.email.toLowerCase() === email.toLowerCase());
+    // Find user in SQLite
+    const user = userQueries.findByEmail.get(email.trim()) as DBUser | undefined;
     if (!user) {
       return NextResponse.json({ error: "invalid_credentials" }, { status: 401 });
     }
-
-    if (!user.isActive) {
+    if (!user.is_active) {
       return NextResponse.json({ error: "account_disabled" }, { status: 403 });
     }
 
-    // Get stored hash - must exist
-    const storedHash = PASSWORDS_DB[user.email];
-    if (!storedHash) {
-      return NextResponse.json({ error: "invalid_credentials" }, { status: 401 });
-    }
-
     // Verify password
-    const isValid = verifyPassword(password, storedHash);
+    const isValid = verifyPassword(password, user.password);
     if (!isValid) {
       return NextResponse.json({ error: "invalid_credentials" }, { status: 401 });
     }
@@ -37,20 +30,20 @@ export async function POST(req: NextRequest) {
     const response = NextResponse.json({
       success: true,
       user: {
-        id: user.id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
+        id:     user.id,
+        name:   user.name,
+        email:  user.email,
+        role:   user.role,
         avatar: user.avatar,
       },
     });
 
     response.cookies.set("auth_token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure:   process.env.NODE_ENV === "production",
       sameSite: "lax",
-      maxAge: 60 * 60 * 24 * 7, // 7 days
-      path: "/",
+      maxAge:   60 * 60 * 24 * 7,
+      path:     "/",
     });
 
     return response;
