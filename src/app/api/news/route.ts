@@ -1,32 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { newsQueries, userQueries, DBNews, DBUser } from "@/lib/database";
+import { newsQueries, userQueries, DBNews } from "@/lib/database";
 import { getSession } from "@/lib/auth";
-
-/** Convert a DB row to the shape the frontend expects */
-function rowToNews(n: DBNews) {
-  return {
-    id:           n.id,
-    title:        n.title,
-    titleEn:      n.title_en   ?? "",
-    titleAr:      n.title_ar   ?? "",
-    excerpt:      n.excerpt    ?? "",
-    excerptEn:    n.excerpt_en ?? "",
-    excerptAr:    n.excerpt_ar ?? "",
-    body:         n.body       ?? "",
-    bodyEn:       n.body_en    ?? "",
-    bodyAr:       n.body_ar    ?? "",
-    category:     n.category,
-    image:        n.image      ?? "",
-    author:       n.author     ?? "",
-    authorId:     n.author_id  ?? "",
-    authorAvatar: n.author_avatar ?? "",
-    status:       n.status,
-    views:        n.views,
-    readingTime:  n.reading_time ?? "۳ دقیقه",
-    tags:         JSON.parse(n.tags ?? "[]"),
-    createdAt:    n.created_at,
-  };
-}
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
@@ -36,30 +10,13 @@ export async function GET(req: NextRequest) {
   const limit    = parseInt(searchParams.get("limit") || "50");
   const offset   = (page - 1) * limit;
 
-  const session   = await getSession();
-  const isAdmin   = session?.role === "admin" ? 1 : 0;
-  const searchStr = search ? `%${search.toLowerCase()}%` : "";
+  const session = await getSession();
+  const isAdmin = session?.role === "admin";
 
-  const rows = newsQueries.search.all({
-    isAdmin,
-    category,
-    search:  searchStr,
-    limit,
-    offset,
-  }) as DBNews[];
+  const news  = newsQueries.search({ isAdmin, category, search, limit, offset });
+  const total = newsQueries.count({ isAdmin, category, search });
 
-  const countRow = newsQueries.count.get({
-    isAdmin,
-    category,
-    search: searchStr,
-  }) as { total: number };
-
-  return NextResponse.json({
-    news:  rows.map(rowToNews),
-    total: countRow.total,
-    page,
-    limit,
-  });
+  return NextResponse.json({ news, total, page, limit });
 }
 
 export async function POST(req: NextRequest) {
@@ -69,44 +26,37 @@ export async function POST(req: NextRequest) {
   }
 
   const body = await req.json();
-  const {
-    title, titleEn, titleAr,
-    excerpt, excerptEn, excerptAr,
-    newsBody, category, image, tags, status,
-  } = body;
+  const { title, titleEn, titleAr, excerpt, excerptEn, excerptAr, newsBody, category, image, tags, status } = body;
 
   if (!title?.trim() || !category) {
     return NextResponse.json({ error: "Title and category required" }, { status: 400 });
   }
 
-  const author = userQueries.findById.get(session.userId) as DBUser | undefined;
+  const author = userQueries.findById(session.userId);
 
-  const newItem = {
+  const newItem: DBNews = {
     id:           "news-" + Date.now(),
     title:        title.trim(),
-    title_en:     titleEn   || null,
-    title_ar:     titleAr   || null,
-    excerpt:      excerpt   || null,
-    excerpt_en:   excerptEn || null,
-    excerpt_ar:   excerptAr || null,
-    body:         newsBody  || null,
-    body_en:      null,
-    body_ar:      null,
+    titleEn:      titleEn   || "",
+    titleAr:      titleAr   || "",
+    excerpt:      excerpt   || "",
+    excerptEn:    excerptEn || "",
+    excerptAr:    excerptAr || "",
+    body:         newsBody  || "",
+    bodyEn:       "",
+    bodyAr:       "",
     category,
     image:        image || "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&q=80",
-    author:       author?.name  || "Admin",
-    author_id:    session.userId,
-    author_avatar:author?.avatar || "https://i.pravatar.cc/80?img=1",
+    author:       author?.name   || "Admin",
+    authorId:     session.userId,
+    authorAvatar: author?.avatar || "https://i.pravatar.cc/80?img=1",
     status:       status || "published",
     views:        0,
-    reading_time: "۳ دقیقه",
-    tags:         JSON.stringify(
-                    tags ? tags.split(",").map((t: string) => t.trim()).filter(Boolean) : []
-                  ),
-    created_at:   new Date().toISOString(),
+    readingTime:  "۳ دقیقه",
+    tags:         tags ? tags.split(",").map((t: string) => t.trim()).filter(Boolean) : [],
+    createdAt:    new Date().toISOString(),
   };
 
-  newsQueries.insert.run(newItem);
-
-  return NextResponse.json({ success: true, news: rowToNews(newItem as any) }, { status: 201 });
+  newsQueries.insert(newItem);
+  return NextResponse.json({ success: true, news: newItem }, { status: 201 });
 }
