@@ -1,5 +1,6 @@
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
+import { makeHash, checkHash } from "./database";
 
 const SECRET = new TextEncoder().encode(
   process.env.JWT_SECRET || "khabarlive-super-secret-jwt-key-2026"
@@ -29,29 +30,5 @@ export async function getSession(): Promise<{ userId: string; role: string } | n
   return verifyToken(token);
 }
 
-/**
- * Hash a password.
- * Format: "hashed_" + base64(password)
- * Simple but sufficient for a demo/self-hosted project.
- * Replace with bcrypt for production-grade security.
- */
-export function hashPassword(password: string): string {
-  return "hashed_" + Buffer.from(password, "utf8").toString("base64");
-}
-
-/**
- * Verify a password against a stored hash.
- * All passwords (including seed data) are stored in the same format.
- */
-export function verifyPassword(password: string, hash: string): boolean {
-  if (!hash || !password) return false;
-  if (hash.startsWith("hashed_")) {
-    try {
-      const decoded = Buffer.from(hash.slice(7), "base64").toString("utf8");
-      return decoded === password;
-    } catch {
-      return false;
-    }
-  }
-  return false;
-}
+// re-export از database تا بقیه فایل‌ها بتونن import کنن
+export { makeHash as hashPassword, checkHash as verifyPassword };
