@@ -152,6 +152,7 @@ export default function AdminDashboard() {
                   <td>
                     <div className="flex gap-2">
                       <Link href={`/news/${n.id}`}><button className="action-btn" style={{ border: "1px solid var(--border)", borderRadius: 6, padding: "3px 8px", fontSize: 11, background: "var(--bg3)", color: "var(--text2)", cursor: "pointer" }}><Eye size={11}/></button></Link>
+                      <Link href={`/admin/news/edit/${n.id}`}><button className="action-btn" style={{ border: "1px solid var(--border)", borderRadius: 6, padding: "3px 8px", fontSize: 11, background: "var(--bg3)", color: "var(--text2)", cursor: "pointer" }}>✏️</button></Link>
                       <button onClick={() => deleteNews(n.id)} className="action-btn" style={{ border: "1px solid var(--border)", borderRadius: 6, padding: "3px 8px", fontSize: 11, background: "var(--bg3)", color: "var(--accent)", cursor: "pointer" }}><Trash2 size={11}/></button>
                     </div>
                   </td>

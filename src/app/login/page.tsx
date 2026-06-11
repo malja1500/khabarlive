@@ -105,7 +105,7 @@ export default function LoginPage() {
                 </div>
               </div>
               <div className="flex justify-end">
-                <button type="button" className="text-xs hover:text-[--accent] transition-colors" style={{ color: "var(--text3)" }}>{t.forgotPass}</button>
+                <Link href="/forgot-password" className="text-xs hover:text-[--accent] transition-colors" style={{ color: "var(--text3)" }}>{t.forgotPass}</Link>
               </div>
               <button
                 type="submit"
