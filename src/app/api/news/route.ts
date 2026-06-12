@@ -9,31 +9,25 @@ export async function GET(req: NextRequest) {
   const page     = parseInt(searchParams.get("page")  || "1");
   const limit    = parseInt(searchParams.get("limit") || "50");
   const offset   = (page - 1) * limit;
+  const session  = await getSession();
+  const isAdmin  = session?.role === "admin";
 
-  const session = await getSession();
-  const isAdmin = session?.role === "admin";
-
-  const news  = newsQueries.search({ isAdmin, category, search, limit, offset });
-  const total = newsQueries.count({ isAdmin, category, search });
-
+  const news  = await newsQueries.search({ isAdmin, category, search, limit, offset });
+  const total = await newsQueries.count({ isAdmin, category, search });
   return NextResponse.json({ news, total, page, limit });
 }
 
 export async function POST(req: NextRequest) {
   const session = await getSession();
-  if (!session || session.role !== "admin") {
+  if (!session || session.role !== "admin")
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
 
   const body = await req.json();
   const { title, titleEn, titleAr, excerpt, excerptEn, excerptAr, newsBody, category, image, tags, status } = body;
-
-  if (!title?.trim() || !category) {
+  if (!title?.trim() || !category)
     return NextResponse.json({ error: "Title and category required" }, { status: 400 });
-  }
 
-  const author = userQueries.findById(session.userId);
-
+  const author = await userQueries.findById(session.userId);
   const newItem: DBNews = {
     id:           "news-" + Date.now(),
     title:        title.trim(),
@@ -56,7 +50,6 @@ export async function POST(req: NextRequest) {
     tags:         tags ? tags.split(",").map((t: string) => t.trim()).filter(Boolean) : [],
     createdAt:    new Date().toISOString(),
   };
-
-  newsQueries.insert(newItem);
+  await newsQueries.insert(newItem);
   return NextResponse.json({ success: true, news: newItem }, { status: 201 });
 }

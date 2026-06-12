@@ -5,18 +5,14 @@ import { signToken, hashPassword } from "@/lib/auth";
 export async function POST(req: NextRequest) {
   try {
     const { name, email, password } = await req.json();
-
-    if (!name?.trim() || !email?.trim() || !password) {
+    if (!name?.trim() || !email?.trim() || !password)
       return NextResponse.json({ error: "All fields required" }, { status: 400 });
-    }
-    if (password.length < 6) {
+    if (password.length < 6)
       return NextResponse.json({ error: "password_too_short" }, { status: 400 });
-    }
 
-    const existing = userQueries.findByEmail(email.trim());
-    if (existing) {
+    const existing = await userQueries.findByEmail(email.trim());
+    if (existing)
       return NextResponse.json({ error: "email_exists" }, { status: 409 });
-    }
 
     const newUser: DBUser = {
       id:        "user-" + Date.now(),
@@ -29,18 +25,16 @@ export async function POST(req: NextRequest) {
       newsCount: 0,
       createdAt: new Date().toISOString(),
     };
-
-    userQueries.insert(newUser);   // saved to data/db.json
+    await userQueries.insert(newUser);
 
     const token = await signToken({ userId: newUser.id, role: newUser.role });
-
     const response = NextResponse.json({
       success: true,
-      user: { id: newUser.id, name: newUser.name, email: newUser.email, role: newUser.role, avatar: newUser.avatar },
+      user: { id:newUser.id, name:newUser.name, email:newUser.email, role:newUser.role, avatar:newUser.avatar },
     });
     response.cookies.set("auth_token", token, {
       httpOnly: true, secure: process.env.NODE_ENV === "production",
-      sameSite: "lax", maxAge: 60 * 60 * 24 * 7, path: "/",
+      sameSite: "lax", maxAge: 60*60*24*7, path: "/",
     });
     return response;
   } catch (e) {

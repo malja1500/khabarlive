@@ -27,7 +27,8 @@
     "tailwind-merge": "^2.4.0",
     "react-hot-toast": "^2.4.1",
     "date-fns": "^3.6.0",
-    "swr": "^2.2.5"
+    "swr": "^2.2.5",
+    "mongoose": "^8.5.1"
   },
   "devDependencies": {
     "eslint": "^8.57.0",

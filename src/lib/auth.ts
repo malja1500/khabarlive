@@ -18,9 +18,7 @@ export async function verifyToken(token: string) {
   try {
     const { payload } = await jwtVerify(token, SECRET);
     return payload as { userId: string; role: string };
-  } catch {
-    return null;
-  }
+  } catch { return null; }
 }
 
 export async function getSession(): Promise<{ userId: string; role: string } | null> {
@@ -30,5 +28,4 @@ export async function getSession(): Promise<{ userId: string; role: string } | n
   return verifyToken(token);
 }
 
-// re-export از database تا بقیه فایل‌ها بتونن import کنن
 export { makeHash as hashPassword, checkHash as verifyPassword };
