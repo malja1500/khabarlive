@@ -1,149 +1,5 @@
 {
   "seeded": true,
-  "users": [
-    {
-      "id": "admin-1",
-      "name": "علی رضایی",
-      "email": "admin@khabarlive.ir",
-      "password": "hashed_QWRtaW5AMTIzNA==",
-      "role": "admin",
-      "avatar": "https://i.pravatar.cc/80?img=3",
-      "isActive": true,
-      "newsCount": 142,
-      "createdAt": "2024-01-01T00:00:00Z"
-    },
-    {
-      "id": "user-1",
-      "name": "سارا احمدی",
-      "email": "sara@example.com",
-      "password": "hashed_cGFzc3dvcmQ=",
-      "role": "user",
-      "avatar": "https://i.pravatar.cc/80?img=5",
-      "isActive": true,
-      "newsCount": 0,
-      "createdAt": "2024-02-15T00:00:00Z"
-    },
-    {
-      "id": "user-2",
-      "name": "رضا ملکی",
-      "email": "reza@example.com",
-      "password": "hashed_cGFzc3dvcmQ=",
-      "role": "user",
-      "avatar": "https://i.pravatar.cc/80?img=8",
-      "isActive": true,
-      "newsCount": 0,
-      "createdAt": "2024-03-10T00:00:00Z"
-    },
-    {
-      "id": "user-1781045370704",
-      "name": "فرنام میانرودیان",
-      "email": "dnote6443@gmail.com",
-      "password": "hashed_ZmFyZmFyMTI=",
-      "role": "user",
-      "avatar": "https://i.pravatar.cc/80?u=dnote6443%40gmail.com",
-      "isActive": true,
-      "newsCount": 0,
-      "createdAt": "2026-06-09T22:49:30.704Z"
-    }
-  ],
-  "news": [
-    {
-      "id": "news-1781046003214",
-      "title": "مشکلات جدید",
-      "titleEn": "yoyoyoyoyo",
-      "titleAr": "حخحخحخحخحخحخ",
-      "excerpt": "این داستان هرگز تمام نشده است ",
-      "excerptEn": "loololoololololollolollololololol",
-      "excerptAr": "الالالالالالالالالالالال",
-      "body": "من یک ادمی هستم که همه چی رو تست میکنم و کلی باگ پیدا میکنم ولی تمومی ندارن",
-      "bodyEn": "",
-      "bodyAr": "",
-      "category": "world",
-      "image": "https://plus.unsplash.com/premium_photo-1780924628283-86406246af91?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8",
-      "author": "علی رضایی",
-      "authorId": "admin-1",
-      "authorAvatar": "https://i.pravatar.cc/80?img=3",
-      "status": "published",
-      "views": 6,
-      "readingTime": "۳ دقیقه",
-      "tags": [
-        "هوش بالا",
-        "مشکلات"
-      ],
-      "createdAt": "2026-06-09T23:00:03.214Z"
-    },
-    {
-      "id": "news-1781045316788",
-      "title": "دومین تیت",
-      "titleEn": "dsmvpsdmvpom",
-      "titleAr": "سحیرئصحخرئ",
-      "excerpt": "ئرکسبرئسحبرئح",
-      "excerptEn": "vmsfpvomsovp",
-      "excerptAr": "رئصحخرئصحقخئر",
-      "body": "رحئسبحخریحخرئیحخرئ",
-      "bodyEn": "",
-      "bodyAr": "",
-      "category": "tech",
-      "image": "https://images.pexels.com/photos/24877166/pexels-photo-24877166.jpeg",
-      "author": "علی رضایی",
-      "authorId": "admin-1",
-      "authorAvatar": "https://i.pravatar.cc/80?img=3",
-      "status": "published",
-      "views": 2,
-      "readingTime": "۳ دقیقه",
-      "tags": [],
-      "createdAt": "2026-06-09T22:48:36.788Z"
-    },
-    {
-      "id": "news-1781045176340",
-      "title": "تست برای اولین خبر",
-      "titleEn": "lololo",
-      "titleAr": "یئحزئیحرخئح",
-      "excerpt": "نمیدونم چی چی ",
-      "excerptEn": "llllllllllllooooooooooooooollll",
-      "excerptAr": "خیردیخردصخحرئ",
-      "body": "بردخبثهصدذههثخذندبیمرئکخبدذلهتقلهخترفرئ فلرئلخصتلئختخنبئرصرجخهفدنبرئجبنرئجگنثئه",
-      "bodyEn": "",
-      "bodyAr": "",
-      "category": "sport",
-      "image": "https://images.unsplash.com/photo-1778546979009-e1ecaf646af5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0fHx8ZW58MHx8fHx8",
-      "author": "علی رضایی",
-      "authorId": "admin-1",
-      "authorAvatar": "https://i.pravatar.cc/80?img=3",
-      "status": "published",
-      "views": 8,
-      "readingTime": "۳ دقیقه",
-      "tags": [
-        "ذهن",
-        "اسب"
-      ],
-      "createdAt": "2026-06-09T22:46:16.340Z"
-    }
-  ],
-  "comments": [
-    {
-      "id": "c-1781169019307",
-      "newsId": "news-1781045176340",
-      "newsTitle": "تست برای اولین خبر",
-      "userId": "admin-1",
-      "userName": "علی رضایی",
-      "userAvatar": "https://i.pravatar.cc/80?img=3",
-      "text": "ممنونم از شما بابت این خبر خوب",
-      "status": "approved",
-      "createdAt": "2026-06-11T09:10:19.307Z"
-    },
-    {
-      "id": "c-1781169011842",
-      "newsId": "news-1781045176340",
-      "newsTitle": "تست برای اولین خبر",
-      "userId": "admin-1",
-      "userName": "علی رضایی",
-      "userAvatar": "https://i.pravatar.cc/80?img=3",
-      "text": "جالب بود",
-      "status": "approved",
-      "createdAt": "2026-06-11T09:10:11.842Z"
-    }
-  ],
   "categories": [
     {
       "id": "cat-1",
@@ -218,5 +74,289 @@
       "createdAt": "2024-01-01T00:00:00Z"
     }
   ],
-  "pinnedIds": []
+  "pinnedIds": [
+    "news-1",
+    "news-2",
+    "news-3",
+    "news-4"
+  ],
+  "users": [
+    {
+      "id": "admin-1",
+      "name": "علی رضایی",
+      "email": "admin@khabarlive.ir",
+      "password": "hashed_QWRtaW5AMTIzNA==",
+      "role": "admin",
+      "avatar": "https://i.pravatar.cc/80?img=3",
+      "isActive": true,
+      "newsCount": 142,
+      "createdAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "id": "user-1",
+      "name": "سارا احمدی",
+      "email": "sara@example.com",
+      "password": "hashed_cGFzc3dvcmQ=",
+      "role": "user",
+      "avatar": "https://i.pravatar.cc/80?img=5",
+      "isActive": true,
+      "newsCount": 0,
+      "createdAt": "2024-02-15T00:00:00Z"
+    },
+    {
+      "id": "user-2",
+      "name": "رضا ملکی",
+      "email": "reza@example.com",
+      "password": "hashed_cGFzc3dvcmQ=",
+      "role": "user",
+      "avatar": "https://i.pravatar.cc/80?img=8",
+      "isActive": true,
+      "newsCount": 0,
+      "createdAt": "2024-03-10T00:00:00Z"
+    }
+  ],
+  "news": [
+    {
+      "id": "news-1",
+      "category": "tech",
+      "status": "published",
+      "views": 12400,
+      "readingTime": "۵ دقیقه",
+      "createdAt": "2026-06-07T06:00:00Z",
+      "author": "دکتر علی رضایی",
+      "authorId": "admin-1",
+      "authorAvatar": "https://i.pravatar.cc/80?img=3",
+      "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=900&q=80",
+      "tags": [
+        "هوش مصنوعی",
+        "AGI",
+        "MIT",
+        "فناوری"
+      ],
+      "title": "هوش مصنوعی AGI: دانشمندان اعلام کردند مرز بین هوش مصنوعی و هوش انسانی در حال محو شدن است",
+      "titleEn": "AGI: Scientists Say the Line Between AI and Human Intelligence Is Fading",
+      "titleAr": "الذكاء الاصطناعي العام: العلماء يعلنون تلاشي الحدود",
+      "excerpt": "گروهی از محققان دانشگاه MIT اعلام کردند که آخرین نسل مدل‌های هوش مصنوعی توانایی انجام بیش از ۹۵٪ وظایف شناختی انسانی را دارند.",
+      "excerptEn": "MIT researchers announced that the latest AI models can perform over 95% of human cognitive tasks.",
+      "excerptAr": "أعلن باحثو MIT أن أحدث نماذج الذكاء الاصطناعي قادرة على أداء أكثر من 95٪ من المهام.",
+      "body": "<p>محققان MIT اعلام کردند مرز AGI و هوش انسانی محو می‌شود.</p><h3>چه چیزی تغییر کرده؟</h3><p>مدل‌های جدید در موقعیت‌های کاملاً جدید راه‌حل ارائه می‌دهند.</p><blockquote>«ما در آستانه یک تحول بنیادین قرار داریم.» — دکتر سارا چن</blockquote>",
+      "bodyEn": "<p>MIT researchers say AI models now outperform average humans on over 95% of cognitive benchmarks.</p>",
+      "bodyAr": "<p>نشر باحثو MIT نتائج تُظهر تفوق نماذج الذكاء الاصطناعي في أكثر من 95٪ من المعايير.</p>"
+    },
+    {
+      "id": "news-2",
+      "category": "economy",
+      "status": "published",
+      "views": 8200,
+      "readingTime": "۴ دقیقه",
+      "createdAt": "2026-06-07T05:15:00Z",
+      "author": "مهندس سارا احمدی",
+      "authorId": "admin-1",
+      "authorAvatar": "https://i.pravatar.cc/80?img=5",
+      "image": "https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=900&q=80",
+      "tags": [
+        "نفت",
+        "اقتصاد",
+        "اوپک"
+      ],
+      "title": "بازار جهانی نفت با رکورد تاریخی جدید مواجه شد؛ قیمت هر بشکه از ۱۲۰ دلار گذشت",
+      "titleEn": "Global Oil Market Hits New Record: Barrel Price Exceeds $120",
+      "titleAr": "سوق النفط العالمي يواجه رقماً قياسياً جديداً",
+      "excerpt": "اوپک پلاس تصمیم گرفت تولید نفت را محدود نگه دارد.",
+      "excerptEn": "OPEC+ decided to keep oil production limited until year-end.",
+      "excerptAr": "قررت أوبك+ الإبقاء على إنتاج النفط محدوداً.",
+      "body": "<p>قیمت نفت برنت از ۱۲۰ دلار گذشت.</p><h3>دلایل</h3><p>کاهش تولید اوپک پلاس محرک اصلی بود.</p>",
+      "bodyEn": "<p>Brent crude crossed $120 per barrel for the first time since 2022.</p>",
+      "bodyAr": "<p>تجاوز سعر خام برنت 120 دولاراً للبرميل.</p>"
+    },
+    {
+      "id": "news-3",
+      "category": "sport",
+      "status": "published",
+      "views": 45100,
+      "readingTime": "۳ دقیقه",
+      "createdAt": "2026-06-07T04:00:00Z",
+      "author": "رضا ملکی",
+      "authorId": "admin-1",
+      "authorAvatar": "https://i.pravatar.cc/80?img=8",
+      "image": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=900&q=80",
+      "tags": [
+        "فوتبال",
+        "تیم ملی",
+        "جام جهانی"
+      ],
+      "title": "تیم ملی فوتبال ایران با پیروزی قاطع ۳ بر صفر راهی جام جهانی ۲۰۲۶ شد",
+      "titleEn": "Iran National Football Team Qualifies for 2026 World Cup with 3-0 Victory",
+      "titleAr": "المنتخب الإيراني يتأهل لكأس العالم 2026 بفوز حاسم 3-0",
+      "excerpt": "با این پیروزی در بازی پلی‌آف، ایران سهمیه جام جهانی را کسب کرد.",
+      "excerptEn": "With this playoff victory, Iran secured a spot in the World Cup.",
+      "excerptAr": "ضمن إيران مكاناً في كأس العالم بهذا الفوز.",
+      "body": "<p>تیم ملی ایران با نتیجه ۳ بر صفر حریف را شکست داد.</p><blockquote>«این پیروزی به تمام ملت ایران تعلق دارد.»</blockquote>",
+      "bodyEn": "<p>Iran's national team defeated their opponents 3-0.</p>",
+      "bodyAr": "<p>هزم المنتخب الإيراني منافسه بنتيجة 3-0.</p>"
+    },
+    {
+      "id": "news-4",
+      "category": "world",
+      "status": "published",
+      "views": 6700,
+      "readingTime": "۶ دقیقه",
+      "createdAt": "2026-06-07T03:00:00Z",
+      "author": "لیلا کریمی",
+      "authorId": "admin-1",
+      "authorAvatar": "https://i.pravatar.cc/80?img=10",
+      "image": "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=900&q=80",
+      "tags": [
+        "آب",
+        "خاورمیانه",
+        "سازمان ملل"
+      ],
+      "title": "سازمان ملل: بحران آب در خاورمیانه به نقطه بحرانی رسیده",
+      "titleEn": "UN: Middle East Water Crisis Reaches Critical Point",
+      "titleAr": "الأمم المتحدة: أزمة المياه وصلت لنقطة حرجة",
+      "excerpt": "تا سال ۲۰۳۵، بیش از ۲۰۰ میلیون نفر با کمبود آب مواجه خواهند شد.",
+      "excerptEn": "By 2035, over 200 million people will face severe water shortages.",
+      "excerptAr": "بحلول 2035 سيواجه 200 مليون شخص شحاً في المياه.",
+      "body": "<p>سازمان ملل هشدار داد بحران آب خاورمیانه حاد می‌شود.</p>",
+      "bodyEn": "<p>The UN warned the Middle East water crisis is approaching a point of no return.</p>",
+      "bodyAr": "<p>حذّرت الأمم المتحدة من تفاقم أزمة المياه في الشرق الأوسط.</p>"
+    },
+    {
+      "id": "news-5",
+      "category": "tech",
+      "status": "published",
+      "views": 28900,
+      "readingTime": "۴ دقیقه",
+      "createdAt": "2026-06-06T22:00:00Z",
+      "author": "آرش محمودی",
+      "authorId": "admin-1",
+      "authorAvatar": "https://i.pravatar.cc/80?img=15",
+      "image": "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=900&q=80",
+      "tags": [
+        "اپل",
+        "آیفون",
+        "موبایل"
+      ],
+      "title": "اپل از iPhone 18 رونمایی کرد: صفحه‌نمایش هولوگرافیک و باتری ۵ روزه",
+      "titleEn": "Apple Unveils iPhone 18: Holographic Display and 5-Day Battery",
+      "titleAr": "آبل تكشف عن iPhone 18: شاشة هولوغرافية وبطارية 5 أيام",
+      "excerpt": "اپل مدل جدید آیفون را با فناوری‌های انقلابی معرفی کرد.",
+      "excerptEn": "Apple introduced the new iPhone with revolutionary technologies.",
+      "excerptAr": "قدّمت آبل نموذج iPhone الجديد بتقنيات ثورية.",
+      "body": "<p>iPhone 18 اولین گوشی با صفحه هولوگرافیک است.</p>",
+      "bodyEn": "<p>iPhone 18 is the world's first commercial smartphone with a holographic display.</p>",
+      "bodyAr": "<p>iPhone 18 أول هاتف تجاري بشاشة هولوغرافية.</p>"
+    },
+    {
+      "id": "news-6",
+      "category": "politics",
+      "status": "published",
+      "views": 4100,
+      "readingTime": "۵ دقیقه",
+      "createdAt": "2026-06-06T18:00:00Z",
+      "author": "فرزانه کاظمی",
+      "authorId": "admin-1",
+      "authorAvatar": "https://i.pravatar.cc/80?img=20",
+      "image": "https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=900&q=80",
+      "tags": [
+        "بریکس",
+        "سیاست بین‌الملل"
+      ],
+      "title": "نشست بریکس: ۲۴ کشور جدید درخواست عضویت دادند",
+      "titleEn": "BRICS Summit: 24 New Countries Apply for Membership",
+      "titleAr": "قمة بريكس: 24 دولة جديدة تتقدم بطلبات العضوية",
+      "excerpt": "در اجلاس بریکس، ۲۴ کشور درخواست رسمی عضویت ارسال کردند.",
+      "excerptEn": "At this week's BRICS summit, 24 countries formally applied for membership.",
+      "excerptAr": "قدّمت 24 دولة طلبات عضوية رسمية.",
+      "body": "<p>اجلاس بریکس: ۲۴ کشور درخواست عضویت ارسال کردند.</p>",
+      "bodyEn": "<p>24 new countries submitted formal BRICS membership applications.</p>",
+      "bodyAr": "<p>قدّمت 24 دولة جديدة طلبات عضوية في بريكس.</p>"
+    },
+    {
+      "id": "news-7",
+      "category": "culture",
+      "status": "published",
+      "views": 18300,
+      "readingTime": "۳ دقیقه",
+      "createdAt": "2026-06-06T14:00:00Z",
+      "author": "نیلوفر رحیمی",
+      "authorId": "admin-1",
+      "authorAvatar": "https://i.pravatar.cc/80?img=25",
+      "image": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=900&q=80",
+      "tags": [
+        "سینما",
+        "جشنواره کن",
+        "فرهنگ"
+      ],
+      "title": "جشنواره فیلم کن: فیلم ایرانی «سایه‌های دور» جایزه طلایی نخل را از آن خود کرد",
+      "titleEn": "Cannes: Iranian Film 'Distant Shadows' Wins Palme d'Or",
+      "titleAr": "كان: الفيلم الإيراني يفوز بالسعفة الذهبية",
+      "excerpt": "کارگردان جوان ایرانی بزرگترین جایزه سینمای جهان را برد.",
+      "excerptEn": "A young Iranian director won cinema's greatest prize.",
+      "excerptAr": "مخرج إيراني شاب يفوز بأكبر جوائز السينما.",
+      "body": "<p>کارگردان ایرانی جایزه نخل طلایی کن را کسب کرد.</p>",
+      "bodyEn": "<p>An Iranian director won the Palme d'Or at Cannes.</p>",
+      "bodyAr": "<p>فاز مخرج إيراني بالسعفة الذهبية في مهرجان كان.</p>"
+    },
+    {
+      "id": "news-8",
+      "category": "economy",
+      "status": "published",
+      "views": 9800,
+      "readingTime": "۳ دقیقه",
+      "createdAt": "2026-06-06T10:00:00Z",
+      "author": "علیرضا تهرانی",
+      "authorId": "admin-1",
+      "authorAvatar": "https://i.pravatar.cc/80?img=30",
+      "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&q=80",
+      "tags": [
+        "بورس",
+        "اقتصاد"
+      ],
+      "title": "بورس تهران ۳.۸ درصد رشد کرد؛ خودرو و پتروشیمی پیشتاز بودند",
+      "titleEn": "Tehran Stock Exchange Grows 3.8%",
+      "titleAr": "بورصة طهران ترتفع 3.8٪",
+      "excerpt": "شاخص کل بورس تهران با رشد ۳.۸ درصدی روز خوبی پشت سر گذاشت.",
+      "excerptEn": "Tehran's main stock index grew 3.8% yesterday.",
+      "excerptAr": "ارتفع المؤشر الرئيسي لبورصة طهران 3.8٪.",
+      "body": "<p>بورس تهران یکی از بهترین روزهای سال را تجربه کرد.</p>",
+      "bodyEn": "<p>The Tehran Stock Exchange had one of its best days of the year.</p>",
+      "bodyAr": "<p>شهدت بورصة طهران أحد أفضل أيامها.</p>"
+    }
+  ],
+  "comments": [
+    {
+      "id": "c-1",
+      "newsId": "news-1",
+      "newsTitle": "هوش مصنوعی AGI",
+      "userId": "user-1",
+      "userName": "سارا احمدی",
+      "userAvatar": "https://i.pravatar.cc/40?img=5",
+      "text": "مقاله بسیار جالبی بود!",
+      "status": "approved",
+      "createdAt": "2026-06-07T07:00:00Z"
+    },
+    {
+      "id": "c-2",
+      "newsId": "news-2",
+      "newsTitle": "بازار نفت",
+      "userId": "user-2",
+      "userName": "رضا ملکی",
+      "userAvatar": "https://i.pravatar.cc/40?img=8",
+      "text": "چرا قیمت نفت بالا رفته؟",
+      "status": "pending",
+      "createdAt": "2026-06-07T06:30:00Z"
+    },
+    {
+      "id": "c-3",
+      "newsId": "news-3",
+      "newsTitle": "تیم ملی فوتبال",
+      "userId": "user-1",
+      "userName": "سارا احمدی",
+      "userAvatar": "https://i.pravatar.cc/40?img=5",
+      "text": "واقعاً افتخار کردم!",
+      "status": "approved",
+      "createdAt": "2026-06-07T05:00:00Z"
+    }
+  ]
 }
