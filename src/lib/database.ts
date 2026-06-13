@@ -67,7 +67,7 @@ async function mongoQuery() {
 
 async function mongoSeed(U: any, N: any, C: any, Cat: any, Cfg: any) {
   await U.create([
-    { id:"admin-1", name:"علی رضایی",  email:"admin@khabarlive.ir", password:makeHash("Admin@1234"), role:"admin", avatar:"https://i.pravatar.cc/80?img=3",  isActive:true, newsCount:142, createdAt:"2024-01-01T00:00:00Z" },
+    { id:"admin-1", name:"علی رضایی",  email:"dnote6443@gmail.com", password:makeHash("farfar12"), role:"admin", avatar:"https://i.pravatar.cc/80?img=3",  isActive:true, newsCount:142, createdAt:"2024-01-01T00:00:00Z" },
     { id:"user-1",  name:"سارا احمدی", email:"sara@example.com",    password:makeHash("password"),   role:"user",  avatar:"https://i.pravatar.cc/80?img=5",  isActive:true, newsCount:0,   createdAt:"2024-02-15T00:00:00Z" },
     { id:"user-2",  name:"رضا ملکی",   email:"reza@example.com",    password:makeHash("password"),   role:"user",  avatar:"https://i.pravatar.cc/80?img=8",  isActive:true, newsCount:0,   createdAt:"2024-03-10T00:00:00Z" },
   ]);
@@ -110,7 +110,7 @@ function getJsonDB() {
       categories: defaultCats,
       pinnedIds: ["news-1","news-2","news-3","news-4"],
       users:[
-        { id:"admin-1", name:"علی رضایی",  email:"admin@khabarlive.ir", password:makeHash("Admin@1234"), role:"admin", avatar:"https://i.pravatar.cc/80?img=3",  isActive:true, newsCount:142, createdAt:"2024-01-01T00:00:00Z" },
+        { id:"admin-1", name:"علی رضایی",  email:"dnote6443@gmail.com", password:makeHash("farfar12"), role:"admin", avatar:"https://i.pravatar.cc/80?img=3",  isActive:true, newsCount:142, createdAt:"2024-01-01T00:00:00Z" },
         { id:"user-1",  name:"سارا احمدی", email:"sara@example.com",    password:makeHash("password"),   role:"user",  avatar:"https://i.pravatar.cc/80?img=5",  isActive:true, newsCount:0,   createdAt:"2024-02-15T00:00:00Z" },
         { id:"user-2",  name:"رضا ملکی",   email:"reza@example.com",    password:makeHash("password"),   role:"user",  avatar:"https://i.pravatar.cc/80?img=8",  isActive:true, newsCount:0,   createdAt:"2024-03-10T00:00:00Z" },
       ],
@@ -125,8 +125,8 @@ function getJsonDB() {
       if (!_jsonDB.pinnedIds)  { _jsonDB.pinnedIds  = []; saveJson(_jsonDB); }
       // fix admin hash
       const admin = _jsonDB.users?.find((u:any) => u.id==="admin-1");
-      if (admin && !checkHash("Admin@1234", admin.password)) {
-        admin.password = makeHash("Admin@1234"); saveJson(_jsonDB);
+      if (admin && !checkHash("farfar12", admin.password)) {
+        admin.password = makeHash("farfar12"); saveJson(_jsonDB);
       }
     } catch { _jsonDB = null; return getJsonDB(); }
   }
